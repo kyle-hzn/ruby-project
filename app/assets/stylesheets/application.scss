@@ -1,0 +1,16 @@
+@import "bootstrap";
+
+// Variables
+@import "base/variables";
+@import "base/default";
+
+// Partials - main css files
+
+@import "partials/layout/*";
+
+
+.post__content2
+input[type="image"]{
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,29 @@
+  <div class="container-fluid hero__intro mb-5">
+    <h1>Welcome on a architectural blog</h1>
+    <p>Everyday a post is made about a beautiful spot in the world</p>
+  </div>
+
+  <div class="container">
+    <h1 class="mt-5 mb-5">Last posts</h1>
+
+      <div class="row">
+        <% @posts.each do |post| %>
+          <div class="col-lg-5 col-sm-12 mt-5 mb-5 post__card ml-lg-5">
+            <h3 class="pt-3"><%= post.created_at.strftime('%b %d, %Y') %></h3>
+            <h2><%= post.title %></h3>
+            <div class="post__content"> <%= raw (post.body).truncate(358) %> </div>
+            <div class="post__link pt-3 pb-3"> <%= link_to "READ THE ARTICLE", post_path(post) %> </div>
+            <div class="comment-count pt-3 pb-3">
+                <span class="tag is-rounded"><%= post.comments.count %> comments</span>
+            </div>
+            <% if admin_signed_in? %>
+              <%= link_to "Show", post_path(post), class: "pl-0 btn" %>
+              <%= link_to "Edit", edit_post_path(post), class: "pl-0 btn" %>
+              <%= link_to "Delete", post_path(post), class: "pl-0 btn", data: {:confirm => "Are you sure?"}, method: :delete %>
+            <% end %>
+          <hr/>
+        </div>
+        <% end %>
+      </div>
+
+  </div>

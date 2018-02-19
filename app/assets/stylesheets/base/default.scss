@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    background: $backgroundColor;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 26pt;
+    color: $black;
+}
+
+h3{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $grey;
+    text-transform: uppercase;
+}
+
+p{
+    font-size: 1rem;
+    line-height: 24pt;
+    color: $black;
+}
+
+.btn{
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $blue;
+}
+
+.btn-secondary{
+    background: $blue;
+    color :#F0F0F0;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    transition: all 0.3s ease;
+    &:hover{
+        background: #F0F0F0;
+        color: $blue;
+    }
+}
+
+i {
+    width: 26px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a:hover, a:active, a:link, a:visited {
+    text-decoration: none;
+}
+
+.control-label {
+    display: none;
+}

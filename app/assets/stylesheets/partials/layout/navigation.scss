@@ -1,0 +1,12 @@
+.navbar-nav{
+    li{
+        a{
+        color: #212121 !important;
+        font-weight: 700;
+        transition: 0.5s ease all;
+        &:hover{
+            color: $blue !important;
+        }
+        }
+    }
+}

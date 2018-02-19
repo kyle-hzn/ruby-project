@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand pr-5" href="#">ArtBoom Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="pr-5"><%= link_to 'Home', root_path %></li>
+        <% if admin_signed_in? %>
+        <!--This block is only visible to signed in admins -->
+          <li class="pr-5"><%= link_to 'New Post', new_post_path %></li>
+          <li class="pr-5"><%= link_to 'My Account', edit_admin_registration_path  %></li>
+          <li class="pr-5"><%= link_to 'Logout', destroy_admin_session_path, :method => :delete %></li>
+          <div class="dropdown">
+              <button class="btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <% Category.all.each do |category| %>
+                  <li class="pl-3">
+                      <%= link_to category.name, posts_path(category: category.name) %>
+                  </li>
+                  <% end %>
+              </div>
+            </div>
+        <!-- The block ends here -->
+        <% else %>
+          <li><%= link_to 'Login', new_admin_session_path  %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>

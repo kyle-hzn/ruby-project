@@ -1,0 +1,37 @@
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:" %>
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% content_for :page_title, @post.title %>
+
+<div class="container">
+
+<div class="col-sm-12 blog-content">
+  <h1 class="text-center mt-5 mb-5"><%= @post.title %></h1>
+  <h3 class="text-center mb-5"><%= @post.created_at.strftime('%b %d, %Y') %></h3>
+  <div class="post__content2"><%= raw @post.body %></div>
+</div>
+
+<section class="section comments">
+        <div class="container">
+            <h2 class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</h2>
+            <%= render @post.comments %>
+            <div class="comment-form">
+                <hr />
+                <h3 class="subtitle is-3">Leave a reply</h3>
+                 <%= render 'comments/form' %>
+            </div>
+        </div>
+</section>
+
+</div>
